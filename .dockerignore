@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Models (too large for Docker build)
+models/checkpoints/*
+models/vae/*
+models/loras/*
+!models/checkpoints/.gitkeep
+!models/vae/.gitkeep
+!models/loras/.gitkeep
+
+# Output
+output/*
+input/*
+temp/*
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+docs/

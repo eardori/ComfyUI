@@ -7,10 +7,13 @@ WORKDIR /workspace
 RUN apt-get update && apt-get install -y \
     git \
     wget \
+    ffmpeg \
+    libsm6 \
+    libxext6 \
     && rm -rf /var/lib/apt/lists/*
 
-# Clone ComfyUI
-RUN git clone https://github.com/eardori/ComfyUI .
+# Copy all files from current directory
+COPY . /workspace/
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
@@ -21,8 +24,5 @@ RUN pip install runpod
 # Expose ComfyUI port
 EXPOSE 8188
 
-# Copy handler
-COPY handler.py /workspace/handler.py
-
 # Start command
-CMD ["python", "handler.py"]
+CMD ["python", "-u", "handler.py"]
